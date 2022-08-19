@@ -38,7 +38,7 @@
                 <h2>Delete The Course</h2>
                 <p>Select course name to delete the course.</p>
                 <form action="/delete_selected_course" method="POST">
-                    <label for="c_id_to_delete"><b>select course to delete</b></label>
+                    <label for="c_id_to_delete"><b>Select Course to Delete</b></label>
                     <select name="c_id_to_delete" id="c_id_to_delete">
                         {% for i in courseNameList %}
                         <option value={{i}}>{{i}}</option>

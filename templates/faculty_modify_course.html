@@ -41,7 +41,7 @@
                 <p>Select the course to modify</p>
 
                 <form action="/modify_selected_course" method="POST">
-                    <label for="c_id_to_modify"><b>select course to modify</b></label>
+                    <label for="c_id_to_modify"><b>Select a Course to Modify</b></label>
                     <select name="c_id_to_modify" id="c_id_to_modify">
                         {% for i in courseNameList %}
                         <option value={{i}}>{{i}}</option>
