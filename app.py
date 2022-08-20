@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, redirect, url_for,session
 from Log.Log_From_Config import LogDetails
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from database.connect_database import *
-from database.query import query
+# from database.query import query
 from flask_mail import Mail, Message
 import configparser
 from datetime import date
