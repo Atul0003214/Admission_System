@@ -73,9 +73,7 @@ def login():
                     u_id = user.user_id
                     user_name = user.email
                     user_type = user.user_type
-                    print(user_name)
                     user_password = user.password
-                    print(user_password)
                     if pwd == user_password:
                         u = User(u_id, user_name)
                         login_user(u)
@@ -287,9 +285,7 @@ def apply_course():
             std_email = request.form['email']
             std_highest_qualification = request.form['hqual']
             create_table_query = "CREATE TABLE IF NOT EXISTS university_admission_system.Registered_Course_Table (course_name text,std_first_name text ,std_last_name text,std_father_name text,std_email text,std_qualification text,applied_date text, application_id uuid PRIMARY KEY,status text);"
-            # applied_course_query = f"INSERT INTO university_admission_system.Registered_Course_Table (course_name,std_first_name,std_last_name,std_father_name,std_email,std_qualification,applied_date,application_id,status) values('{course_name}','{std_first_name}','{std_last_name}','{std_father_name}','{std_email}','{std_highest_qualification}',toTimestamp(now()),uuid(),'Under Review');"
             applied_course_query = f"INSERT INTO university_admission_system.Registered_Course_Table (course_name,std_first_name,std_last_name,std_father_name,std_email,std_qualification,applied_date,application_id,status) values('{course_name}','{std_first_name}','{std_last_name}','{std_father_name}','{std_email}','{std_highest_qualification}','{dateToday}',uuid(),'Under Review');"
-            print(applied_course_query)
             LogDetails("create table query", create_table_query)
             create_table_dbobj = DatabaseConnection()
             insert_table_dbobj = DatabaseConnection()
@@ -323,12 +319,12 @@ def send_approve_email(action, address, application_id):
         if request.method == 'POST':
             mail = Mail(app)
             msg = Message(
-                'Course Status Update',
+                'Course Status Updated',
                 sender='atul00032146@gmail.com',
                 recipients=[address]
 
             )
-            msg.body = 'Your application status is updated. Please login to the application to check.'+'\n'+"Thanks"+'\n'+"University Admission Team"
+            msg.body = 'Your application status is updated. Please login to the application to check.'+'\n\n'+"Thanks"+'\n'+"University Admission Team"
             if action == 'approve':
                 update_approve_status_query = f"UPDATE university_admission_system.Registered_Course_Table SET status = 'Interview Scheduled' WHERE application_id = {application_id};"
                 update_approve_dbobj = DatabaseConnection()
