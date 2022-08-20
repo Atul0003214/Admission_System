@@ -278,14 +278,14 @@ def apply_course():
     try:
         if request.method == 'POST':
             today = date.today()
-            dateToday = today.strftime("%d/%m/%Y")
+            dateToday = today.strftime("%Y-%m-%d")
             course_name = request.form['scourse']
             std_first_name = request.form['fname']
             std_last_name = request.form['lname']
             std_father_name = request.form['fathername']
             std_email = request.form['email']
             std_highest_qualification = request.form['hqual']
-            create_table_query = "CREATE TABLE IF NOT EXISTS university_admission_system.Registered_Course_Table (course_name text,std_first_name text ,std_last_name text,std_father_name text,std_email text,std_qualification text,applied_date timestamp, application_id uuid PRIMARY KEY,status text);"
+            create_table_query = "CREATE TABLE IF NOT EXISTS university_admission_system.Registered_Course_Table (course_name text,std_first_name text ,std_last_name text,std_father_name text,std_email text,std_qualification text,applied_date text, application_id uuid PRIMARY KEY,status text);"
             # applied_course_query = f"INSERT INTO university_admission_system.Registered_Course_Table (course_name,std_first_name,std_last_name,std_father_name,std_email,std_qualification,applied_date,application_id,status) values('{course_name}','{std_first_name}','{std_last_name}','{std_father_name}','{std_email}','{std_highest_qualification}',toTimestamp(now()),uuid(),'Under Review');"
             applied_course_query = f"INSERT INTO university_admission_system.Registered_Course_Table (course_name,std_first_name,std_last_name,std_father_name,std_email,std_qualification,applied_date,application_id,status) values('{course_name}','{std_first_name}','{std_last_name}','{std_father_name}','{std_email}','{std_highest_qualification}','{dateToday}',uuid(),'Under Review');"
             print(applied_course_query)
