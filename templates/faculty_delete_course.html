@@ -48,7 +48,7 @@
                     <label for="c_id_to_delete"><b>select course to delete</b></label>
                     <select name="c_id_to_delete" id="c_id_to_delete">
                         {% for i in courseNameList %}
-                        <option value='{{i.course_name}}'>{{i.course_name}}</option>
+                        <option value={{i}}>{{i}}</option>
                         {% endfor %}
                       </select>
                     <input type="submit" value="Delete">
