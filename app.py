@@ -1,6 +1,6 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for,session
 from Log.Log_From_Config import LogDetails
-from flask import Flask
+# from flask import Flask
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from database.connect_database import *
 from database.query import query
@@ -81,6 +81,7 @@ def login():
                         u = User(u_id, user_name)
                         login_user(u)
                         LogDetails("New login", user_name)
+                        session["user"] = user_name
                         if user_type == "faculty":
                             return redirect(url_for('faculty_dashboard_home'))
                         else:
@@ -267,6 +268,7 @@ def logout():
     try:
         logout_user()
         LogDetails("logout", "User logged out successfully")
+        session.pop("user",None)
         return render_template("login.html")
     except Exception as logout_e:
         LogDetails("logout", logout_e)
