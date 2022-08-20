@@ -322,12 +322,12 @@ def send_approve_email(action, address, application_id):
         if request.method == 'POST':
             mail = Mail(app)
             msg = Message(
-                'Status Update',
+                'Course Status Update',
                 sender='atul00032146@gmail.com',
                 recipients=[address]
 
             )
-            msg.body = 'Your application status is updated. Please login to the application to check.'
+            msg.body = 'Your application status is updated. Please login to the application to check.'+'\n'+"Thanks"+'\n'+"University Admission Team"
             if action == 'approve':
                 update_approve_status_query = f"UPDATE university_admission_system.Registered_Course_Table SET status = 'Interview Scheduled' WHERE application_id = {application_id};"
                 update_approve_dbobj = DatabaseConnection()
