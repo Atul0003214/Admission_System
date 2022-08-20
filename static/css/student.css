@@ -172,3 +172,16 @@ footer {
 .group {
 	zoom: 1;
 }
+.parent{
+	display: flex;
+	flex-wrap: wrap;
+
+
+}
+.info{
+	flex:1;
+}
+.logout{
+	flex:1;
+	text-align: right;
+}

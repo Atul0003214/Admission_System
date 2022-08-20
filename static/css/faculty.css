@@ -13,7 +13,7 @@ img {
 }
 
 .container {
-	width: 90%;
+	width: 940px;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #FFF;
@@ -84,7 +84,7 @@ header p {
 
 /* Form Styles */
 form {
-	/*background-color: #94b8b8;*/
+	background-color: #94b8b8;
 	padding: 30px 40px;
 }
 
@@ -134,7 +134,7 @@ input[type="submit"] {
 	box-sizing: border-box;
 	background-color: #669999;
 	color: black;
-	padding: 10px 5px;
+	padding: 10px 0;
 	border: 1px solid #669999;
 	border-radius: 3px;
 	outline: none;
@@ -171,4 +171,18 @@ footer {
 
 .group {
 	zoom: 1;
+}
+
+.parent{
+	display: flex;
+	flex-wrap: wrap;
+
+
+}
+.info{
+	flex:1;
+}
+.logout{
+	flex:1;
+	text-align: right;
 }
