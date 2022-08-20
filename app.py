@@ -346,13 +346,6 @@ def send_approve_email(action, address, application_id):
     except Exception as e:
         LogDetails("send_email", e)
 
-@app.route("/student_dashboard")
-@login_required
-def student_dashboard():
-    try:
-        return render_template("student_dashboard.html")
-    except Exception as e:
-        LogDetails("student_dashboard", e)
 
 @app.route("/contacus_student")
 @login_required
