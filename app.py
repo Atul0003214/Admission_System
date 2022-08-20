@@ -1,6 +1,5 @@
 from flask import Flask, request, render_template, redirect, url_for,session
 from Log.Log_From_Config import LogDetails
-# from flask import Flask
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from database.connect_database import *
 from database.query import query
@@ -349,13 +348,13 @@ def send_approve_email(action, address, application_id):
         LogDetails("send_email", e)
 
 
-@app.route("/contacus_student")
+@app.route("/contactus_student")
 @login_required
-def contacus_student():
+def contactus_student():
     try:
-        return render_template("contacus_student.html")
+        return render_template("contactus_student.html")
     except Exception as e:
-        LogDetails("contacus_student", e)
+        LogDetails("contactus_student", e)
 
 if __name__ == "__main__":
     app.run()
