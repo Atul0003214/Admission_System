@@ -11,9 +11,15 @@
 
     <div class="container">
         <header>
-            <h1>Dashboard</h1>
-            <p>one place for all information.</p>
-
+            <div class="parent">
+                <div class="info">
+                <h1>Dashboard</h1>
+                <p>one place for all information.</p>
+                </div>
+                <div class="logout">
+                 <a href="/logout">Logout</a>
+                </div>
+            </div>
             <nav class="site-nav">
                 <ul class="group">
                     <li><a href="{{url_for('faculty_dashboard_home')}}">Course Management</a></li>

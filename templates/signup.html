@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index-style.css') }}">
-
+    <script type="text/javascript" src="{{ url_for('static', filename='js/signup.js') }}"></script>
 </head>
 
 <body>
@@ -16,7 +16,7 @@
         </div>
         <div class="right-side">
             <div class="form-container">
-                <form action="/signup_submit", method="POST">
+                <form action="/signup_submit" onsubmit="return validateForm()", method="POST">
 
                     <h1>Welcome To New Course</h1>
                     <div class="shift_right">
@@ -35,7 +35,7 @@
                     </select>
 
                     <label for="fid"><b>Enter Faculty Id</b></label>
-                    <input type="text" placeholder="Faculty Id" name="fid" id="fid" required>
+                    <input type="text" placeholder="Faculty Id" name="fid" id="fid">
 
                     <label for="email"><b>Email</b></label>
                     <input type="text" placeholder="Enter Email" name="email" id="email" required>
